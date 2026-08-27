@@ -1,25 +1,31 @@
 # Intelligent Knowledge Assistant — RAG + Agent
 
-Python + FastAPI + LangGraph + ChromaDB + Sentence Transformers + OpenAI-compatible LLM API.
+A production-oriented AI knowledge assistant built with Python, FastAPI, LangGraph, ChromaDB, Sentence Transformers, BGE Reranker, Tavily and an OpenAI-compatible LLM API.
 
-## Quick Start
+The system combines Retrieval-Augmented Generation (RAG) with an Agent-based routing architecture, allowing the assistant to automatically select the appropriate tool for each user query.
 
-1. Create environment:
-   `python -m venv .venv`
-2. Activate it and install:
-   `pip install -r requirements.txt`
-3. Copy `.env.example` to `.env` and add your LLM API key.
-4. Put PDF/TXT/MD files into `data/documents/`.
-5. Index documents:
-   `python -m app.rag.ingest`
-6. Start:
-   `uvicorn app.main:app --reload`
-7. Open `http://127.0.0.1:8000/docs`
+## Architecture
 
-## API
-- `GET /health`
-- `POST /documents/upload`
-- `POST /search` with `{"query":"...", "top_k":4}`
-- `POST /chat` with `{"message":"..."}`
+```mermaid
+flowchart TD
+    A[User Query] --> B[FastAPI]
+    B --> C[LangGraph Agent]
 
-The Agent routes each question to direct LLM answering or the RAG retriever.
+    C --> D{Router}
+
+    D -->|Private Knowledge| E[RAG Retrieval]
+    D -->|Arithmetic| F[Calculator]
+    D -->|Current / Public Info| G[Web Search]
+    D -->|General Conversation| H[Direct LLM]
+
+    E --> E1[ChromaDB]
+    E1 --> E2[Embedding]
+    E2 --> E3[BGE Reranker]
+
+    E3 --> I[Answer Generation]
+    F --> I
+    G --> I
+    H --> I
+
+    I --> J[Streaming Response]
+    J --> K[Conversation Memory]
