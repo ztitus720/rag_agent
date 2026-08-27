@@ -1,0 +1,50 @@
+[
+  {
+    "query": "邹哲的多六足机器人项目使用了哪些技术？",
+    "relevant_chunks": [4]
+  },
+  {
+    "query": "邹哲是如何实现六足机器人稳定行走的？",
+    "relevant_chunks": [4]
+  },
+  {
+    "query": "邹哲有哪些项目涉及计算机视觉？",
+    "relevant_chunks": [4]
+  },
+  {
+    "query": "邹哲有哪些后端开发经验？",
+    "relevant_chunks": [2, 3, 5]
+  },
+  {
+    "query": "邹哲在哪些项目中使用了 Python？",
+    "relevant_chunks": [4]
+  },
+  {
+    "query": "邹哲本科期间学习过哪些编程语言？",
+    "relevant_chunks": [1]
+  },
+  {
+    "query": "邹哲的在线调查问卷系统使用了哪些技术？",
+    "relevant_chunks": [2]
+  },
+  {
+    "query": "在线调查问卷系统是如何进行权限控制的？",
+    "relevant_chunks": [2]
+  },
+  {
+    "query": "校园二手交易系统使用什么后端技术？",
+    "relevant_chunks": [3]
+  },
+  {
+    "query": "邹哲有哪些 AI 相关技能？",
+    "relevant_chunks": [5]
+  },
+  {
+    "query": "邹哲的六足机器人视觉处理使用了什么技术？",
+    "relevant_chunks": [4]
+  },
+  {
+    "query": "邹哲有哪些项目使用了 Java？",
+    "relevant_chunks": [3]
+  }
+]

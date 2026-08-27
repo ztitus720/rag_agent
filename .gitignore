@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+*.pyc
+data/chroma/
+.idea/
+.vscode/
+
+data/documents/*.pdf
+
+debug_openai.py
+*.zip
