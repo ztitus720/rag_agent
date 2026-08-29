@@ -1,0 +1,248 @@
+{
+  "experiment": "embedding_comparison",
+  "corpus_size": 7,
+  "n_queries": 26,
+  "hf_endpoint": "https://hf-mirror.com",
+  "models": {
+    "all-MiniLM-L6-v2": {
+      "status": "ok",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "note": "当前线上使用；英文语料训练，多语言能力有限",
+      "query_prefix": "",
+      "dim": 384,
+      "corpus_encode_time_s": 0.365,
+      "avg_query_time_s": 0.0187,
+      "metrics": {
+        "Hit@1": 0.23076923076923078,
+        "Hit@3": 0.5769230769230769,
+        "Hit@5": 0.8076923076923077,
+        "Recall@3": 0.4935897435897436,
+        "Recall@5": 0.7756410256410255,
+        "MRR": 0.43534798534798547,
+        "n": 26
+      },
+      "by_category": {
+        "fact": {
+          "Hit@1": 0.3,
+          "Hit@3": 0.6,
+          "Hit@5": 0.6,
+          "Recall@3": 0.6,
+          "Recall@5": 0.6,
+          "MRR": 0.46428571428571425,
+          "n": 10
+        },
+        "paraphrase": {
+          "Hit@1": 0.0,
+          "Hit@3": 0.25,
+          "Hit@5": 0.875,
+          "Recall@3": 0.25,
+          "Recall@5": 0.875,
+          "MRR": 0.26785714285714285,
+          "n": 8
+        },
+        "multi": {
+          "Hit@1": 0.375,
+          "Hit@3": 0.875,
+          "Hit@5": 1.0,
+          "Recall@3": 0.6041666666666666,
+          "Recall@5": 0.8958333333333333,
+          "MRR": 0.5666666666666667,
+          "n": 8
+        }
+      },
+      "details": [
+        {
+          "id": "R01",
+          "category": "fact",
+          "first_relevant_rank": 1,
+          "top1": "resume::0",
+          "top1_sim": 0.3385
+        },
+        {
+          "id": "R02",
+          "category": "fact",
+          "first_relevant_rank": 1,
+          "top1": "resume::1",
+          "top1_sim": 0.4813
+        },
+        {
+          "id": "R03",
+          "category": "fact",
+          "first_relevant_rank": 6,
+          "top1": "resume::0",
+          "top1_sim": 0.3356
+        },
+        {
+          "id": "R04",
+          "category": "fact",
+          "first_relevant_rank": 7,
+          "top1": "resume::4",
+          "top1_sim": 0.4073
+        },
+        {
+          "id": "R05",
+          "category": "fact",
+          "first_relevant_rank": 6,
+          "top1": "resume::0",
+          "top1_sim": 0.4436
+        },
+        {
+          "id": "R06",
+          "category": "fact",
+          "first_relevant_rank": 3,
+          "top1": "resume::0",
+          "top1_sim": 0.3725
+        },
+        {
+          "id": "R07",
+          "category": "fact",
+          "first_relevant_rank": 3,
+          "top1": "resume::0",
+          "top1_sim": 0.3423
+        },
+        {
+          "id": "R08",
+          "category": "fact",
+          "first_relevant_rank": 1,
+          "top1": "resume::1",
+          "top1_sim": 0.4381
+        },
+        {
+          "id": "R09",
+          "category": "fact",
+          "first_relevant_rank": 3,
+          "top1": "resume::0",
+          "top1_sim": 0.3829
+        },
+        {
+          "id": "R10",
+          "category": "fact",
+          "first_relevant_rank": 6,
+          "top1": "resume::0",
+          "top1_sim": 0.3938
+        },
+        {
+          "id": "R11",
+          "category": "paraphrase",
+          "first_relevant_rank": 5,
+          "top1": "resume::0",
+          "top1_sim": 0.2846
+        },
+        {
+          "id": "R12",
+          "category": "paraphrase",
+          "first_relevant_rank": 2,
+          "top1": "demo::0",
+          "top1_sim": 0.3337
+        },
+        {
+          "id": "R13",
+          "category": "paraphrase",
+          "first_relevant_rank": 5,
+          "top1": "resume::0",
+          "top1_sim": 0.4477
+        },
+        {
+          "id": "R14",
+          "category": "paraphrase",
+          "first_relevant_rank": 7,
+          "top1": "resume::0",
+          "top1_sim": 0.312
+        },
+        {
+          "id": "R15",
+          "category": "paraphrase",
+          "first_relevant_rank": 2,
+          "top1": "resume::0",
+          "top1_sim": 0.3667
+        },
+        {
+          "id": "R16",
+          "category": "paraphrase",
+          "first_relevant_rank": 5,
+          "top1": "resume::0",
+          "top1_sim": 0.3018
+        },
+        {
+          "id": "R17",
+          "category": "paraphrase",
+          "first_relevant_rank": 5,
+          "top1": "resume::0",
+          "top1_sim": 0.4156
+        },
+        {
+          "id": "R18",
+          "category": "paraphrase",
+          "first_relevant_rank": 5,
+          "top1": "resume::0",
+          "top1_sim": 0.3314
+        },
+        {
+          "id": "R19",
+          "category": "multi",
+          "first_relevant_rank": 1,
+          "top1": "resume::4",
+          "top1_sim": 0.5741
+        },
+        {
+          "id": "R20",
+          "category": "multi",
+          "first_relevant_rank": 5,
+          "top1": "resume::0",
+          "top1_sim": 0.3772
+        },
+        {
+          "id": "R21",
+          "category": "multi",
+          "first_relevant_rank": 3,
+          "top1": "resume::0",
+          "top1_sim": 0.3618
+        },
+        {
+          "id": "R22",
+          "category": "multi",
+          "first_relevant_rank": 1,
+          "top1": "resume::5",
+          "top1_sim": 0.4892
+        },
+        {
+          "id": "R23",
+          "category": "multi",
+          "first_relevant_rank": 3,
+          "top1": "demo::0",
+          "top1_sim": 0.4246
+        },
+        {
+          "id": "R24",
+          "category": "multi",
+          "first_relevant_rank": 3,
+          "top1": "resume::0",
+          "top1_sim": 0.3354
+        },
+        {
+          "id": "R25",
+          "category": "multi",
+          "first_relevant_rank": 3,
+          "top1": "resume::0",
+          "top1_sim": 0.3641
+        },
+        {
+          "id": "R26",
+          "category": "multi",
+          "first_relevant_rank": 1,
+          "top1": "resume::1",
+          "top1_sim": 0.4272
+        }
+      ]
+    },
+    "bge-small-zh-v1.5": {
+      "status": "skipped",
+      "reason": "OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'."
+    },
+    "bge-small-zh-v1.5 (+instruction)": {
+      "status": "skipped",
+      "reason": "OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'."
+    }
+  },
+  "generated_at": "2026-08-29 21:39:46"
+}

@@ -1,0 +1,139 @@
+{
+  "experiment": "unanswerable_refusal",
+  "n_queries": 8,
+  "top_k": 4,
+  "rag_refusal_rate": 1.0,
+  "baseline_refusal_rate": 0.625,
+  "keyword_refusal_count": 7,
+  "details": [
+    {
+      "id": "U1",
+      "query": "邹哲期望的薪资范围是多少？",
+      "plausible": true,
+      "retrieved": [
+        "resume::0",
+        "resume::4",
+        "resume::5",
+        "resume::3"
+      ],
+      "rag_answer": "根据提供的简历信息，没有提到邹哲的期望薪资范围。资料中只包含联系方式、教育背景、项目经历和技能等信息，未涉及薪资期望。因此，无法从现有知识库中获取该信息。",
+      "rag_verdict": "REFUSE",
+      "rag_keyword_refuse": true,
+      "baseline_answer": "我没有关于“邹哲期望的薪资范围”的具体信息。这个名字可能指向不同的人或特定背景，但我无法确认你指的是哪一位，也没有相关公开资料。\n\n如果你能提供更多上下文（比如来自哪篇报道、哪个行业、或具体职位），我可以帮你查找或分析。在缺乏明确信息时，我不能随意猜测或编造薪资数字。",
+      "baseline_verdict": "REFUSE"
+    },
+    {
+      "id": "U2",
+      "query": "邹哲在哪家公司实习过？",
+      "plausible": true,
+      "retrieved": [
+        "resume::0",
+        "demo::0",
+        "resume::5",
+        "resume::4"
+      ],
+      "rag_answer": "根据提供的资料，没有提到邹哲在哪家公司实习过。上下文仅包含联系方式、技能介绍和项目经历，未涉及实习公司信息，因此无法回答该问题。",
+      "rag_verdict": "REFUSE",
+      "rag_keyword_refuse": true,
+      "baseline_answer": "邹哲曾在**微软亚洲研究院（MSRA）**实习过。",
+      "baseline_verdict": "ANSWER"
+    },
+    {
+      "id": "U3",
+      "query": "邹哲的 GitHub 主页地址是什么？",
+      "plausible": true,
+      "retrieved": [
+        "resume::5",
+        "demo::0",
+        "resume::0",
+        "resume::1"
+      ],
+      "rag_answer": "根据提供的知识库资料，其中并未包含邹哲的 GitHub 主页地址。资料中仅提到了他的电话、邮箱、教育背景和技能等信息，没有 GitHub 链接。因此，基于现有上下文，该信息不可用。",
+      "rag_verdict": "REFUSE",
+      "rag_keyword_refuse": true,
+      "baseline_answer": "邹哲（Netch 作者）的 GitHub 主页是：\n\n**https://github.com/Azard**",
+      "baseline_verdict": "ANSWER"
+    },
+    {
+      "id": "U4",
+      "query": "邹哲的硕士毕业论文题目是什么？",
+      "plausible": true,
+      "retrieved": [
+        "demo::0",
+        "resume::4",
+        "resume::1",
+        "resume::0"
+      ],
+      "rag_answer": "根据提供的知识库信息，没有找到邹哲的硕士毕业论文题目。简历中仅提及他在埃克塞特大学攻读高级计算机科学硕士，但未列出毕业论文题目。",
+      "rag_verdict": "REFUSE",
+      "rag_keyword_refuse": false,
+      "baseline_answer": "我无法直接确认“邹哲”具体指哪一位，因为同名的人很多；不同学校、不同专业的“邹哲”硕士毕业论文题目也会不同。  \n如果你能提供他的学校、专业或来源背景，我可以帮你进一步查找或推测。",
+      "baseline_verdict": "REFUSE"
+    },
+    {
+      "id": "U5",
+      "query": "邹哲发表过哪些学术论文？",
+      "plausible": true,
+      "retrieved": [
+        "resume::1",
+        "resume::5",
+        "resume::4",
+        "resume::0"
+      ],
+      "rag_answer": "根据提供的知识库信息（一份个人简历），**没有找到邹哲发表过学术论文的相关记录**。\n\n简历中仅包含其教育背景、获奖情况、技能和项目经历（如多六足机器人研制），未提及任何已发表的学术论文。因此，关于邹哲发表的学术论文，当前信息不足，无法回答。",
+      "rag_verdict": "REFUSE",
+      "rag_keyword_refuse": true,
+      "baseline_answer": "截至目前，公开可查的学术数据库中，未找到名为“邹哲”的学者发表学术论文的明确记录。学术成果通常需要以作者单位、学科领域等具体信息进行精确检索。建议您通过中国知网、万方数据或Web of Science等学术平台，以“邹哲”为作者关键词进一步查询，或直接向相关高校、科研院所的官方渠道核实。",
+      "baseline_verdict": "REFUSE"
+    },
+    {
+      "id": "U6",
+      "query": "邹哲用过 Kubernetes 吗？他的容器编排经验如何？",
+      "plausible": true,
+      "retrieved": [
+        "demo::0",
+        "resume::5",
+        "resume::1",
+        "resume::2"
+      ],
+      "rag_answer": "根据提供的知识库内容，**没有信息表明邹哲使用过 Kubernetes，也没有关于他容器编排经验的记载**。\n\n具体来看：\n\n- 邹哲的简历技能部分（Source 2）列出的工具链为：Git、Maven、Linux 常用命令、Tomcat/Apache 部署，**未提及 Kubernetes 或容器编排**。\n- 他的项目经历（Source 4）为基于 Web 的在线调查问卷系统，技术栈是 Vue + Spring Boot + MySQL + Apache + ECharts，也没有涉及 Kubernetes。\n- 唯一与容器相关的信息来自 demo.md（Source 1），提到系统\"支持 Docker 化运行\"，但这是知识库问答系统本身的说明，**并非邹哲的个人经验或技能**。\n\n因此，基于现有上下文，无法确认邹哲有 Kubernetes 使用经验或容器编排能力。如需了解这方面的情况，需要查看他的其他简历信息或补充材料。",
+      "rag_verdict": "REFUSE",
+      "rag_keyword_refuse": true,
+      "baseline_answer": "关于“邹哲”是否用过 Kubernetes，目前我无法给出确切答案，因为这个名字比较常见，可能是不同领域的人士（比如技术工程师、开源贡献者、学生等）。公开渠道中也没有足够信息指向一位明确以“邹哲”为名且具有广泛知名度的 Kubernetes 专家。\n\n如果你是在评估某位候选人或同事的容器编排经验，可以这样判断：\n\n- **直接询问**：了解他是否在实战项目中使用过 Kubernetes，以及具体负责过哪些组件（如 Pod、Deployment、Service、Ingress、Helm、Operator 等）。\n- **查看公开资料**：GitHub、技术博客、知乎/掘金文章、演讲记录或 CKA（Certified Kubernetes Administrator）认证。\n- **考察实际能力**：比如是否处理过集群高可用、多集群管理、网络策略、存储、监控告警、CI/CD 集成等问题。\n\n如果你能提供更多关于这位“邹哲”的背景（比如公司、职位、技术方向），我可以尝试帮你进一步分析。",
+      "baseline_verdict": "REFUSE"
+    },
+    {
+      "id": "U7",
+      "query": "邹哲有驾照吗？",
+      "plausible": false,
+      "retrieved": [
+        "resume::0",
+        "demo::0",
+        "resume::5",
+        "resume::4"
+      ],
+      "rag_answer": "根据提供的知识库信息，无法确认邹哲是否有驾照。简历中未提及任何关于驾照的信息。",
+      "rag_verdict": "REFUSE",
+      "rag_keyword_refuse": true,
+      "baseline_answer": "仅凭“邹哲”这个名字，无法判断他有没有驾照。因为：\n\n1. “邹哲”可能是同名同姓的普通人或公众人物；\n2. 是否有驾照属于个人隐私，不能从名字直接推断。\n\n如果“邹哲”是某个具体的人，比如明星、公众人物，你可以补充更多背景，我可以帮你查公开信息。否则，只能问邹哲本人或相关机构了。",
+      "baseline_verdict": "REFUSE"
+    },
+    {
+      "id": "U8",
+      "query": "六足机器人项目拿到了多少融资？",
+      "plausible": false,
+      "retrieved": [
+        "resume::0",
+        "demo::0",
+        "resume::4",
+        "resume::5"
+      ],
+      "rag_answer": "根据提供的资料，没有找到关于“六足机器人项目”融资情况的信息，因此无法回答该项目获得了多少融资。",
+      "rag_verdict": "REFUSE",
+      "rag_keyword_refuse": true,
+      "baseline_answer": "如果你说的是奇弩科技（Vincross）旗下的六足机器人 **HEXA**，公开信息显示它在 **2017 年完成了 A 轮融资，金额为 1000 万美元**（约合人民币 7000 万元），由纪源资本（GGV Capital）领投，真格基金、源码资本等跟投。\n\n如果你指的是另一个“六足机器人项目”，可以补充一下具体公司或名称，我再帮你查对应的融资额。",
+      "baseline_verdict": "ANSWER"
+    }
+  ],
+  "generated_at": "2026-08-29 21:42:57"
+}

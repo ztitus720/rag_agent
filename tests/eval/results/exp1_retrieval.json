@@ -1,0 +1,738 @@
+{
+  "experiment": "retrieval_quality",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "reranker_model": "BAAI/bge-reranker-v2-m3",
+  "corpus_size": 7,
+  "corpus": [
+    {
+      "id": "demo::0",
+      "source": "demo.md",
+      "chars": 227
+    },
+    {
+      "id": "resume::0",
+      "source": "邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf",
+      "chars": 57
+    },
+    {
+      "id": "resume::1",
+      "source": "邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf",
+      "chars": 424
+    },
+    {
+      "id": "resume::2",
+      "source": "邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf",
+      "chars": 303
+    },
+    {
+      "id": "resume::3",
+      "source": "邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf",
+      "chars": 281
+    },
+    {
+      "id": "resume::4",
+      "source": "邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf",
+      "chars": 262
+    },
+    {
+      "id": "resume::5",
+      "source": "邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf",
+      "chars": 257
+    }
+  ],
+  "n_queries": 26,
+  "candidate_k": 7,
+  "dense": {
+    "Hit@1": 0.23076923076923078,
+    "Hit@3": 0.5769230769230769,
+    "Hit@5": 0.8076923076923077,
+    "Recall@3": 0.4935897435897436,
+    "Recall@5": 0.7756410256410255,
+    "MRR": 0.43534798534798547,
+    "n": 26
+  },
+  "reranked": {
+    "Hit@1": 0.6538461538461539,
+    "Hit@3": 0.9615384615384616,
+    "Hit@5": 1.0,
+    "Recall@3": 0.8910256410256411,
+    "Recall@5": 1.0,
+    "MRR": 0.8044871794871794,
+    "n": 26
+  },
+  "by_category": {
+    "fact": {
+      "dense": {
+        "Hit@1": 0.3,
+        "Hit@3": 0.6,
+        "Hit@5": 0.6,
+        "Recall@3": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 0.46428571428571425,
+        "n": 10
+      },
+      "reranked": {
+        "Hit@1": 0.9,
+        "Hit@3": 1.0,
+        "Hit@5": 1.0,
+        "Recall@3": 1.0,
+        "Recall@5": 1.0,
+        "MRR": 0.95,
+        "n": 10
+      }
+    },
+    "paraphrase": {
+      "dense": {
+        "Hit@1": 0.0,
+        "Hit@3": 0.25,
+        "Hit@5": 0.875,
+        "Recall@3": 0.25,
+        "Recall@5": 0.875,
+        "MRR": 0.26785714285714285,
+        "n": 8
+      },
+      "reranked": {
+        "Hit@1": 0.5,
+        "Hit@3": 1.0,
+        "Hit@5": 1.0,
+        "Recall@3": 1.0,
+        "Recall@5": 1.0,
+        "MRR": 0.75,
+        "n": 8
+      }
+    },
+    "multi": {
+      "dense": {
+        "Hit@1": 0.375,
+        "Hit@3": 0.875,
+        "Hit@5": 1.0,
+        "Recall@3": 0.6041666666666666,
+        "Recall@5": 0.8958333333333333,
+        "MRR": 0.5666666666666667,
+        "n": 8
+      },
+      "reranked": {
+        "Hit@1": 0.5,
+        "Hit@3": 0.875,
+        "Hit@5": 1.0,
+        "Recall@3": 0.6458333333333333,
+        "Recall@5": 1.0,
+        "MRR": 0.6770833333333333,
+        "n": 8
+      }
+    }
+  },
+  "rank_improved": 18,
+  "rank_worsened": 2,
+  "avg_dense_latency_s": 0.0317,
+  "avg_rerank_latency_s": 12.6219,
+  "details": [
+    {
+      "id": "R01",
+      "category": "fact",
+      "query": "邹哲的联系方式是什么？",
+      "relevant": [
+        "resume::0"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::4",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::0",
+        "resume::1",
+        "resume::3"
+      ],
+      "dense_first_rank": 1,
+      "reranked_first_rank": 1,
+      "rank_change": 0,
+      "dense_top1_distance": 1.322901,
+      "reranked_top1_score": 0.995277
+    },
+    {
+      "id": "R02",
+      "category": "fact",
+      "query": "邹哲硕士就读于哪所大学，什么专业？",
+      "relevant": [
+        "resume::1"
+      ],
+      "dense_top3": [
+        "resume::1",
+        "demo::0",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::1",
+        "resume::0",
+        "resume::3"
+      ],
+      "dense_first_rank": 1,
+      "reranked_first_rank": 1,
+      "rank_change": 0,
+      "dense_top1_distance": 1.037478,
+      "reranked_top1_score": 0.205072
+    },
+    {
+      "id": "R03",
+      "category": "fact",
+      "query": "邹哲的雅思成绩是多少？",
+      "relevant": [
+        "resume::1"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::5",
+        "resume::4"
+      ],
+      "reranked_top3": [
+        "resume::0",
+        "resume::1",
+        "resume::3"
+      ],
+      "dense_first_rank": 6,
+      "reranked_first_rank": 2,
+      "rank_change": 4,
+      "dense_top1_distance": 1.328779,
+      "reranked_top1_score": 0.029876
+    },
+    {
+      "id": "R04",
+      "category": "fact",
+      "query": "在线调查问卷系统使用了哪些技术栈？",
+      "relevant": [
+        "resume::2"
+      ],
+      "dense_top3": [
+        "resume::4",
+        "resume::0",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::2",
+        "resume::3",
+        "resume::4"
+      ],
+      "dense_first_rank": 7,
+      "reranked_first_rank": 1,
+      "rank_change": 6,
+      "dense_top1_distance": 1.185437,
+      "reranked_top1_score": 0.998184
+    },
+    {
+      "id": "R05",
+      "category": "fact",
+      "query": "校园二手交易系统的后端用了什么技术？",
+      "relevant": [
+        "resume::3"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::4",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::3",
+        "resume::2",
+        "resume::5"
+      ],
+      "dense_first_rank": 6,
+      "reranked_first_rank": 1,
+      "rank_change": 5,
+      "dense_top1_distance": 1.112761,
+      "reranked_top1_score": 0.995679
+    },
+    {
+      "id": "R06",
+      "category": "fact",
+      "query": "多六足机器人项目使用了哪些技术？",
+      "relevant": [
+        "resume::4"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "demo::0",
+        "resume::4"
+      ],
+      "reranked_top3": [
+        "resume::4",
+        "resume::3",
+        "resume::2"
+      ],
+      "dense_first_rank": 3,
+      "reranked_first_rank": 1,
+      "rank_change": 2,
+      "dense_top1_distance": 1.254944,
+      "reranked_top1_score": 0.974752
+    },
+    {
+      "id": "R07",
+      "category": "fact",
+      "query": "邹哲掌握哪些 AI 相关技能？",
+      "relevant": [
+        "resume::5"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "demo::0",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::5",
+        "resume::0",
+        "resume::1"
+      ],
+      "dense_first_rank": 3,
+      "reranked_first_rank": 1,
+      "rank_change": 2,
+      "dense_top1_distance": 1.315331,
+      "reranked_top1_score": 0.273076
+    },
+    {
+      "id": "R08",
+      "category": "fact",
+      "query": "邹哲获得过哪些荣誉和奖学金？",
+      "relevant": [
+        "resume::1"
+      ],
+      "dense_top3": [
+        "resume::1",
+        "resume::4",
+        "resume::0"
+      ],
+      "reranked_top3": [
+        "resume::1",
+        "resume::0",
+        "resume::3"
+      ],
+      "dense_first_rank": 1,
+      "reranked_first_rank": 1,
+      "rank_change": 0,
+      "dense_top1_distance": 1.123729,
+      "reranked_top1_score": 0.053768
+    },
+    {
+      "id": "R09",
+      "category": "fact",
+      "query": "六足机器人用了多少个自由度的舵机？",
+      "relevant": [
+        "resume::4"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "demo::0",
+        "resume::4"
+      ],
+      "reranked_top3": [
+        "resume::4",
+        "resume::1",
+        "resume::5"
+      ],
+      "dense_first_rank": 3,
+      "reranked_first_rank": 1,
+      "rank_change": 2,
+      "dense_top1_distance": 1.234145,
+      "reranked_top1_score": 0.970446
+    },
+    {
+      "id": "R10",
+      "category": "fact",
+      "query": "问卷系统的查询响应时间优化了多少？",
+      "relevant": [
+        "resume::2"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::4",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::2",
+        "resume::1",
+        "resume::3"
+      ],
+      "dense_first_rank": 6,
+      "reranked_first_rank": 1,
+      "rank_change": 5,
+      "dense_top1_distance": 1.212483,
+      "reranked_top1_score": 0.892074
+    },
+    {
+      "id": "R11",
+      "category": "paraphrase",
+      "query": "他读研期间上过哪些跟人工智能有关的课？",
+      "relevant": [
+        "resume::1"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "demo::0",
+        "resume::4"
+      ],
+      "reranked_top3": [
+        "resume::5",
+        "resume::1",
+        "resume::4"
+      ],
+      "dense_first_rank": 5,
+      "reranked_first_rank": 2,
+      "rank_change": 3,
+      "dense_top1_distance": 1.430728,
+      "reranked_top1_score": 0.006427
+    },
+    {
+      "id": "R12",
+      "category": "paraphrase",
+      "query": "这个人是怎么保证机器人走路不摔倒的？",
+      "relevant": [
+        "resume::4"
+      ],
+      "dense_top3": [
+        "demo::0",
+        "resume::4",
+        "resume::0"
+      ],
+      "reranked_top3": [
+        "resume::4",
+        "resume::1",
+        "resume::5"
+      ],
+      "dense_first_rank": 2,
+      "reranked_first_rank": 1,
+      "rank_change": 1,
+      "dense_top1_distance": 1.3325,
+      "reranked_top1_score": 0.008321
+    },
+    {
+      "id": "R13",
+      "category": "paraphrase",
+      "query": "用户密码是怎么存储的，会不会明文泄露？",
+      "relevant": [
+        "resume::3"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::4",
+        "demo::0"
+      ],
+      "reranked_top3": [
+        "resume::3",
+        "resume::1",
+        "resume::2"
+      ],
+      "dense_first_rank": 5,
+      "reranked_first_rank": 1,
+      "rank_change": 4,
+      "dense_top1_distance": 1.104638,
+      "reranked_top1_score": 0.398981
+    },
+    {
+      "id": "R14",
+      "category": "paraphrase",
+      "query": "系统怎么做到不同身份的人看到的内容不一样？",
+      "relevant": [
+        "resume::2"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "demo::0",
+        "resume::3"
+      ],
+      "reranked_top3": [
+        "resume::3",
+        "resume::2",
+        "resume::1"
+      ],
+      "dense_first_rank": 7,
+      "reranked_first_rank": 2,
+      "rank_change": 5,
+      "dense_top1_distance": 1.376002,
+      "reranked_top1_score": 0.000796
+    },
+    {
+      "id": "R15",
+      "category": "paraphrase",
+      "query": "他做过哪些跟图像或视频处理相关的工作？",
+      "relevant": [
+        "resume::4",
+        "resume::5"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::5",
+        "resume::4"
+      ],
+      "reranked_top3": [
+        "resume::1",
+        "resume::5",
+        "resume::4"
+      ],
+      "dense_first_rank": 2,
+      "reranked_first_rank": 2,
+      "rank_change": 0,
+      "dense_top1_distance": 1.26653,
+      "reranked_top1_score": 0.000392
+    },
+    {
+      "id": "R16",
+      "category": "paraphrase",
+      "query": "有没有把数据做成图表展示出来的经验？",
+      "relevant": [
+        "resume::2"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::4",
+        "resume::3"
+      ],
+      "reranked_top3": [
+        "resume::1",
+        "resume::2",
+        "resume::3"
+      ],
+      "dense_first_rank": 5,
+      "reranked_first_rank": 2,
+      "rank_change": 3,
+      "dense_top1_distance": 1.396428,
+      "reranked_top1_score": 0.00148
+    },
+    {
+      "id": "R17",
+      "category": "paraphrase",
+      "query": "他阅读英文技术文献的能力怎么样？",
+      "relevant": [
+        "resume::1"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::5",
+        "resume::4"
+      ],
+      "reranked_top3": [
+        "resume::1",
+        "resume::5",
+        "resume::3"
+      ],
+      "dense_first_rank": 5,
+      "reranked_first_rank": 1,
+      "rank_change": 4,
+      "dense_top1_distance": 1.168754,
+      "reranked_top1_score": 0.078487
+    },
+    {
+      "id": "R18",
+      "category": "paraphrase",
+      "query": "机器人是怎么和电脑之间传数据的？",
+      "relevant": [
+        "resume::4"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "demo::0",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::4",
+        "resume::1",
+        "resume::5"
+      ],
+      "dense_first_rank": 5,
+      "reranked_first_rank": 1,
+      "rank_change": 4,
+      "dense_top1_distance": 1.337178,
+      "reranked_top1_score": 0.004526
+    },
+    {
+      "id": "R19",
+      "category": "multi",
+      "query": "邹哲在哪些项目中使用了 Python？",
+      "relevant": [
+        "resume::4"
+      ],
+      "dense_top3": [
+        "resume::4",
+        "resume::1",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::4",
+        "resume::0",
+        "resume::1"
+      ],
+      "dense_first_rank": 1,
+      "reranked_first_rank": 1,
+      "rank_change": 0,
+      "dense_top1_distance": 0.851845,
+      "reranked_top1_score": 0.007375
+    },
+    {
+      "id": "R20",
+      "category": "multi",
+      "query": "邹哲用过哪些数据库？",
+      "relevant": [
+        "resume::2",
+        "resume::3"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::4",
+        "demo::0"
+      ],
+      "reranked_top3": [
+        "resume::0",
+        "resume::1",
+        "resume::2"
+      ],
+      "dense_first_rank": 5,
+      "reranked_first_rank": 3,
+      "rank_change": 2,
+      "dense_top1_distance": 1.24569,
+      "reranked_top1_score": 0.007336
+    },
+    {
+      "id": "R21",
+      "category": "multi",
+      "query": "邹哲有哪些后端开发经验？",
+      "relevant": [
+        "resume::2",
+        "resume::3",
+        "resume::5"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "demo::0",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::5",
+        "resume::0",
+        "resume::2"
+      ],
+      "dense_first_rank": 3,
+      "reranked_first_rank": 1,
+      "rank_change": 2,
+      "dense_top1_distance": 1.276354,
+      "reranked_top1_score": 0.077838
+    },
+    {
+      "id": "R22",
+      "category": "multi",
+      "query": "邹哲用 Java 做过什么？",
+      "relevant": [
+        "resume::3",
+        "resume::5"
+      ],
+      "dense_top3": [
+        "resume::5",
+        "resume::3",
+        "resume::2"
+      ],
+      "reranked_top3": [
+        "resume::0",
+        "resume::1",
+        "resume::5"
+      ],
+      "dense_first_rank": 1,
+      "reranked_first_rank": 3,
+      "rank_change": -2,
+      "dense_top1_distance": 1.021615,
+      "reranked_top1_score": 0.006927
+    },
+    {
+      "id": "R23",
+      "category": "multi",
+      "query": "邹哲用过哪些版本控制或工程化工具？",
+      "relevant": [
+        "resume::3",
+        "resume::5"
+      ],
+      "dense_top3": [
+        "demo::0",
+        "resume::0",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::3",
+        "resume::0",
+        "resume::5"
+      ],
+      "dense_first_rank": 3,
+      "reranked_first_rank": 1,
+      "rank_change": 2,
+      "dense_top1_distance": 1.150744,
+      "reranked_top1_score": 0.014604
+    },
+    {
+      "id": "R24",
+      "category": "multi",
+      "query": "邹哲有没有团队协作或者带队的经验？",
+      "relevant": [
+        "resume::3",
+        "resume::4"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::5",
+        "resume::4"
+      ],
+      "reranked_top3": [
+        "resume::0",
+        "resume::1",
+        "resume::5"
+      ],
+      "dense_first_rank": 3,
+      "reranked_first_rank": 4,
+      "rank_change": -1,
+      "dense_top1_distance": 1.329106,
+      "reranked_top1_score": 0.122123
+    },
+    {
+      "id": "R25",
+      "category": "multi",
+      "query": "邹哲的 Web 前端技能有哪些？",
+      "relevant": [
+        "resume::2",
+        "resume::5"
+      ],
+      "dense_top3": [
+        "resume::0",
+        "resume::3",
+        "resume::5"
+      ],
+      "reranked_top3": [
+        "resume::0",
+        "resume::5",
+        "resume::1"
+      ],
+      "dense_first_rank": 3,
+      "reranked_first_rank": 2,
+      "rank_change": 1,
+      "dense_top1_distance": 1.271829,
+      "reranked_top1_score": 0.029724
+    },
+    {
+      "id": "R26",
+      "category": "multi",
+      "query": "邹哲参加过哪些学科竞赛？",
+      "relevant": [
+        "resume::1"
+      ],
+      "dense_top3": [
+        "resume::1",
+        "resume::4",
+        "demo::0"
+      ],
+      "reranked_top3": [
+        "resume::1",
+        "resume::0",
+        "resume::5"
+      ],
+      "dense_first_rank": 1,
+      "reranked_first_rank": 1,
+      "rank_change": 0,
+      "dense_top1_distance": 1.145641,
+      "reranked_top1_score": 0.038296
+    }
+  ],
+  "generated_at": "2026-08-29 21:38:02"
+}

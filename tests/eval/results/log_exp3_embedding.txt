@@ -1,0 +1,34 @@
+==========================================================================
+实验 3 / Embedding 模型横向对比（纯向量检索，无 Reranker）
+==========================================================================
+
+语料 7 个 chunk，评测集 26 条 query
+
+--- all-MiniLM-L6-v2 ---
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3814.62it/s]
+模型加载完成，用时 7.9s
+向量维度 384，编码 7 个 chunk 用时 0.36s
+Hit@1=0.2308  Hit@3=0.5769  MRR=0.4353
+
+--- bge-small-zh-v1.5 ---
+[跳过] 加载失败：OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+--- bge-small-zh-v1.5 (+instruction) ---
+[跳过] 加载失败：OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+==========================================================================
+对比结果（纯 Dense 检索）
+==========================================================================
+模型                维度   Hit@1   Hit@3   MRR     改写类 Hit@1  单次编码    
+------------------------------------------------------------------
+all-MiniLM-L6-v2  384  0.2308  0.5769  0.4353  0.0000     18.7ms  
+
+未完成的模型：
+  bge-small-zh-v1.5: OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+  bge-small-zh-v1.5 (+instruction): OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+[saved] D:\RAG-Agent\tests\eval\results\exp3_embedding.json

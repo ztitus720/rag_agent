@@ -1,0 +1,13 @@
+{
+  "_comment": "知识库中不存在答案的问题。期望行为：明确说明信息不可得，而不是编造。plausible=true 表示看起来像简历里会有、但实际没有的问题（最容易诱发幻觉）。",
+  "queries": [
+    {"id": "U1", "query": "邹哲期望的薪资范围是多少？", "plausible": true},
+    {"id": "U2", "query": "邹哲在哪家公司实习过？", "plausible": true},
+    {"id": "U3", "query": "邹哲的 GitHub 主页地址是什么？", "plausible": true},
+    {"id": "U4", "query": "邹哲的硕士毕业论文题目是什么？", "plausible": true},
+    {"id": "U5", "query": "邹哲发表过哪些学术论文？", "plausible": true},
+    {"id": "U6", "query": "邹哲用过 Kubernetes 吗？他的容器编排经验如何？", "plausible": true},
+    {"id": "U7", "query": "邹哲有驾照吗？", "plausible": false},
+    {"id": "U8", "query": "六足机器人项目拿到了多少融资？", "plausible": false}
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-08-29 21:42:58",
+  "runs": {
+    "检索质量：Dense vs BGE Reranker": {
+      "script": "exp1_retrieval.py",
+      "exit_code": 0,
+      "elapsed_s": 352.3,
+      "result_file": "exp1_retrieval.json",
+      "log_file": "log_exp1_retrieval.txt"
+    },
+    "Router 分类准确率": {
+      "script": "exp2_router.py",
+      "exit_code": 0,
+      "elapsed_s": 73.4,
+      "result_file": "exp2_router.json",
+      "log_file": "log_exp2_router.txt"
+    },
+    "Embedding 横向对比": {
+      "script": "exp3_embedding.py",
+      "exit_code": 0,
+      "elapsed_s": 29.3,
+      "result_file": "exp3_embedding.json",
+      "log_file": "log_exp3_embedding.txt"
+    },
+    "不可回答问题拒答率": {
+      "script": "exp4_unanswerable.py",
+      "exit_code": 0,
+      "elapsed_s": 191.5,
+      "result_file": "exp4_unanswerable.json",
+      "log_file": "log_exp4_unanswerable.txt"
+    }
+  },
+  "headline": {
+    "retrieval": {
+      "n_queries": 26,
+      "corpus_size": 7,
+      "dense_hit1": 0.23076923076923078,
+      "reranked_hit1": 0.6538461538461539,
+      "dense_mrr": 0.43534798534798547,
+      "reranked_mrr": 0.8044871794871794
+    },
+    "router": {
+      "n_queries": 20,
+      "accuracy": 1.0,
+      "stability": 0.95,
+      "avg_latency_s": 1.197
+    },
+    "embedding": {
+      "all-MiniLM-L6-v2": 0.23076923076923078,
+      "bge-small-zh-v1.5": "skipped",
+      "bge-small-zh-v1.5 (+instruction)": "skipped"
+    },
+    "refusal": {
+      "n_queries": 8,
+      "rag_refusal_rate": 1.0,
+      "baseline_refusal_rate": 0.625
+    }
+  }
+}

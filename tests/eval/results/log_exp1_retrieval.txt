@@ -1,0 +1,69 @@
+==========================================================================
+实验 1 / 检索质量评测：Dense vs Dense + BGE Reranker
+==========================================================================
+
+语料：7 个 chunk
+  demo::0      len=227   demo.md
+  resume::0    len=57    邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf
+  resume::1    len=424   邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf
+  resume::2    len=303   邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf
+  resume::3    len=281   邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf
+  resume::4    len=262   邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf
+  resume::5    len=257   邹哲_英国埃克塞特大学高级计算机硕士_立即到岗一周5天.pdf
+
+Embedding 模型：sentence-transformers/all-MiniLM-L6-v2
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3571.69it/s]
+索引构建完成，用时 16.07s
+
+加载 BGE Reranker (BAAI/bge-reranker-v2-m3)...
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  79%|███████▉  | 311/393 [00:00<00:00, 3103.95it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 3119.46it/s]
+Reranker 加载完成，用时 4.52s
+  R01 [fact      ] dense#1 -> rerank#1  邹哲的联系方式是什么？
+  R02 [fact      ] dense#1 -> rerank#1  邹哲硕士就读于哪所大学，什么专业？
+↑ R03 [fact      ] dense#6 -> rerank#2  邹哲的雅思成绩是多少？
+↑ R04 [fact      ] dense#7 -> rerank#1  在线调查问卷系统使用了哪些技术栈？
+↑ R05 [fact      ] dense#6 -> rerank#1  校园二手交易系统的后端用了什么技术？
+↑ R06 [fact      ] dense#3 -> rerank#1  多六足机器人项目使用了哪些技术？
+↑ R07 [fact      ] dense#3 -> rerank#1  邹哲掌握哪些 AI 相关技能？
+  R08 [fact      ] dense#1 -> rerank#1  邹哲获得过哪些荣誉和奖学金？
+↑ R09 [fact      ] dense#3 -> rerank#1  六足机器人用了多少个自由度的舵机？
+↑ R10 [fact      ] dense#6 -> rerank#1  问卷系统的查询响应时间优化了多少？
+↑ R11 [paraphrase] dense#5 -> rerank#2  他读研期间上过哪些跟人工智能有关的课？
+↑ R12 [paraphrase] dense#2 -> rerank#1  这个人是怎么保证机器人走路不摔倒的？
+↑ R13 [paraphrase] dense#5 -> rerank#1  用户密码是怎么存储的，会不会明文泄露？
+↑ R14 [paraphrase] dense#7 -> rerank#2  系统怎么做到不同身份的人看到的内容不一样？
+  R15 [paraphrase] dense#2 -> rerank#2  他做过哪些跟图像或视频处理相关的工作？
+↑ R16 [paraphrase] dense#5 -> rerank#2  有没有把数据做成图表展示出来的经验？
+↑ R17 [paraphrase] dense#5 -> rerank#1  他阅读英文技术文献的能力怎么样？
+↑ R18 [paraphrase] dense#5 -> rerank#1  机器人是怎么和电脑之间传数据的？
+  R19 [multi     ] dense#1 -> rerank#1  邹哲在哪些项目中使用了 Python？
+↑ R20 [multi     ] dense#5 -> rerank#3  邹哲用过哪些数据库？
+↑ R21 [multi     ] dense#3 -> rerank#1  邹哲有哪些后端开发经验？
+↓ R22 [multi     ] dense#1 -> rerank#3  邹哲用 Java 做过什么？
+↑ R23 [multi     ] dense#3 -> rerank#1  邹哲用过哪些版本控制或工程化工具？
+↓ R24 [multi     ] dense#3 -> rerank#4  邹哲有没有团队协作或者带队的经验？
+↑ R25 [multi     ] dense#3 -> rerank#2  邹哲的 Web 前端技能有哪些？
+  R26 [multi     ] dense#1 -> rerank#1  邹哲参加过哪些学科竞赛？
+
+==========================================================================
+总体结果
+==========================================================================
+指标        Dense   +Reranker  Δ        
+--------------------------------------
+Hit@1     0.2308  0.6538     +0.4231  
+Hit@3     0.5769  0.9615     +0.3846  
+Hit@5     0.8077  1.0000     +0.1923  
+Recall@3  0.4936  0.8910     +0.3974  
+Recall@5  0.7756  1.0000     +0.2244  
+MRR       0.4353  0.8045     +0.3691  
+
+分类别 Hit@1 / MRR
+类别          n   Dense H@1  RR H@1  Dense MRR  RR MRR  
+------------------------------------------------------
+fact        10  0.3000     0.9000  0.4643     0.9500  
+paraphrase  8   0.0000     0.5000  0.2679     0.7500  
+multi       8   0.3750     0.5000  0.5667     0.6771  
+
+Reranker 使 18 条 query 的首个相关 chunk 排名上升，2 条下降，6 条不变。
+
+[saved] D:\RAG-Agent\tests\eval\results\exp1_retrieval.json
